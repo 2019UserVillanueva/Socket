@@ -17,7 +17,7 @@ public class Client
     {
         Webcam wCam = null;
        
-        try (DataOutputStream sender = new DataOutputStream(new BufferedOutputStream(new Socket("localhost", 54339).getOutputStream())))
+        try (DataOutputStream sender = new DataOutputStream(new BufferedOutputStream(new Socket("192.168.0.13", 54339).getOutputStream())))
         {
 
             wCam = Webcam.getDefault();

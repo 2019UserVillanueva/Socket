@@ -9,11 +9,14 @@ import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
+import java.awt.BorderLayout;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 
 public class ClienteWebcam {
@@ -21,9 +24,21 @@ public class ClienteWebcam {
 
     private static InetAddress maquina;
     private static int puerto = 6699;
+    private static PanelImagen panel2 ;
 	public static void main(String[] args) {
 		Webcam cam = null;
 		DatagramSocket dataSocket = null;
+                
+                 JFrame jframe2 = new JFrame();
+        jframe2.setSize(640, 480);
+        jframe2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jframe2.setLayout(new BorderLayout());
+      
+        panel2 = new PanelImagen();
+        
+         jframe2.add(panel2, BorderLayout.CENTER);
+       
+        jframe2.setVisible(true);
 
 		try {
                     dataSocket = new DatagramSocket();
@@ -74,6 +89,8 @@ public class ClienteWebcam {
                 //Crea un paquete UDP y lo envia al receptor
                 DatagramPacket paquete = new DatagramPacket(bytes, bytes.length,maquina, puerto);
                 dataSocket.send(paquete);
+                  BufferedImage frame2 = ImageIO.read(new ByteArrayInputStream(bytes));
+            panel2.setFondo(frame2);
             }
             
         }

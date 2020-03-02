@@ -15,7 +15,7 @@ import javax.swing.WindowConstants;
 public class ServicioWebcam {
 
     private static PanelImagen panelImagen;
-     private static PanelImagen panelImage2;
+    // private static PanelImagen panelImage2;
     private static ClienteWebcam img;
 
     private static int puerto = 6699;
@@ -29,13 +29,14 @@ public class ServicioWebcam {
         jframe.setSize(640, 480);
         jframe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jframe.setLayout(new BorderLayout());
+        
         JFrame jframe2 = new JFrame();
         jframe2.setSize(640, 480);
         jframe2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jframe2.setLayout(new BorderLayout());
 
         panelImagen = new PanelImagen();
-         panelImage2 = new PanelImagen();
+        // panelImage2 = new PanelImagen();
         
         
         jframe.add(panelImagen, BorderLayout.CENTER);
@@ -45,7 +46,7 @@ public class ServicioWebcam {
         jframe.setVisible(true);
         
            
-        jframe2.add(panelImage2, BorderLayout.CENTER);
+        //jframe2.add(panelImage2, BorderLayout.CENTER);
         //jframe.setResizable(true);
         //jframe.pack();
         //Muestra la ventana
@@ -76,8 +77,8 @@ public class ServicioWebcam {
             dataSocket.receive(paquete);
             BufferedImage frame = ImageIO.read(new ByteArrayInputStream(bytes));
             panelImagen.setFondo(frame);
-              BufferedImage frame2 = ImageIO.read(new ByteArrayInputStream(bytes));
-            panelImage2.setFondo(frame2);
+             // BufferedImage frame2 = ImageIO.read(new ByteArrayInputStream(bytes));
+           // panelImage2.setFondo(frame2);
             
         }
     }
