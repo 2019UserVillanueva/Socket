@@ -30,15 +30,15 @@ public class ClienteWebcam {
 		DatagramSocket dataSocket = null;
                 
                  JFrame jframe2 = new JFrame();
-        jframe2.setSize(640, 480);
-        jframe2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jframe2.setLayout(new BorderLayout());
+                 jframe2.setSize(480, 320);
+                 jframe2.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                 jframe2.setLayout(new BorderLayout());
       
-        panel2 = new PanelImagen();
-        
-         jframe2.add(panel2, BorderLayout.CENTER);
-       
-        jframe2.setVisible(true);
+                panel2 = new PanelImagen();
+
+                jframe2.add(panel2, BorderLayout.CENTER);
+
+                jframe2.setVisible(true);
 
 		try {
                     dataSocket = new DatagramSocket();
